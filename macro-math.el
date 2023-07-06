@@ -87,8 +87,10 @@ to."
         (progn (deactivate-mark)
                (kill-new rounded)
                (message "Saved %s in kill-ring" rounded))
-      (delete-region beg end)
-      (insert rounded))))
+        
+        ;; (delete-region beg end)
+        (goto-char (region-end))
+        (insert " = " rounded))))
 
 ;;;###autoload
 (defun macro-math-eval-and-round-region (beg end &optional digits)
